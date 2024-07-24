@@ -1,33 +1,27 @@
-let secretMessage = ['Learning', 'is', 'not', 'about', 'what', 'you', 'get', 'easily', 'the', 'first', 'time,', 'it', 'is', 'about', 'what', 'you', 'can', 'figure', 'out.', '-2015,', 'Chris', 'Pine,', 'Learn', 'JavaScript'];
+document.getElementById('manipulateMessage').addEventListener('click', () => {
+    let secretMessage = document.getElementById('message').value.split(' ');
 
-console.log(secretMessage.length);
+    document.getElementById('originalMessage').innerText = `Original Message: ${secretMessage.join(' ')}`;
 
-secretMessage.pop();
-//remove last element
+    console.log(secretMessage.length);
+    secretMessage.pop(); // remove last element
+    console.log(secretMessage.length);
 
-console.log(secretMessage.length);
-//get length of array
+    secretMessage.push('to', 'Program'); // add elements to end of array
+    console.log(secretMessage.length);
 
-secretMessage.push('to', 'Program');
-//add elemnts to end of array
+    console.log(secretMessage.indexOf('easily')); // get index of element
+    secretMessage[7] = 'right'; // change element accessing index
+    console.log(secretMessage.length);
+    console.log(secretMessage[7]);
 
-console.log(secretMessage.length);
+    secretMessage.shift(); // remove first element
 
-console.log(secretMessage.indexOf('easily'))
-    //get index of element
+    secretMessage.splice(6, 10, 'know'); // remove elements and replace
+    console.log(secretMessage.length);
 
-secretMessage[7] = 'right';
-//change element accessing index
+    const finalMessage = secretMessage.join(' ');
+    console.log(finalMessage);
 
-console.log(secretMessage.length);
-console.log(secretMessage[7])
-
-secretMessage.shift();
-// remove first element
-
-secretMessage.splice(6, 10, 'know')
-    //remove element and replace
-
-console.log(secretMessage.length);
-
-console.log(secretMessage.join(' '));
+    document.getElementById('finalMessage').innerText = `Final Message: ${finalMessage}`;
+});
